@@ -1,0 +1,634 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rojo: #C0392B;
+    --blanco: #F5F0EB;
+    --negro: #0A0A0A;
+    --gris: #888;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(10,10,10,0.1) 0%,
+      rgba(10,10,10,0.3) 50%,
+      rgba(10,10,10,0.85) 100%),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;
+    filter: grayscale(100%);
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-names {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blanco);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+  }
+
+  .hero-date {
+    font-family: var(--font-body);
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--gris);
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gris);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: var(--gris);
+    display: block;
+  }
+
+  /* ── SECCIÓN BASE ── */
+  section {
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .full-width {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* ── NOS CASAMOS ── */
+  .nos-casamos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .nos-casamos-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    filter: grayscale(100%);
+  }
+
+  .nos-casamos-text .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 1rem;
+  }
+
+  .nos-casamos-text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
+    color: var(--rojo);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .nos-casamos-text p {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.9;
+    max-width: 28ch;
+  }
+
+  /* ── FECHA ── */
+  .fecha-section {
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+
+  .fecha-pre {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 1rem;
+  }
+
+  .fecha-mes {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--blanco);
+  }
+
+  .fecha-dia {
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 25vw, 18rem);
+    font-weight: 600;
+    color: var(--rojo);
+    line-height: 0.85;
+    margin: -0.1em 0;
+  }
+
+  .fecha-año {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 200;
+    letter-spacing: 0.4em;
+    color: var(--blanco);
+  }
+
+  /* ── CEREMONIA ── */
+  .ceremonia-title {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blanco);
+    margin-bottom: 4rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .info-item .icon {
+    font-size: 1.8rem;
+    color: var(--rojo);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .info-item h3 {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 0.75rem;
+  }
+
+  .info-item p {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--blanco);
+    line-height: 1.6;
+  }
+
+  /* ── DIVISOR ── */
+  .divider {
+    width: 1px;
+    height: 80px;
+    background: var(--rojo);
+    margin: 0 auto;
+    opacity: 0.5;
+  }
+
+  /* ── ITINERARIO ── */
+  .itinerario-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .it-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blanco);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .it-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .it-hora {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gris);
+  }
+
+  .it-evento {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--blanco);
+    text-align: right;
+  }
+
+  .it-foto {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    filter: grayscale(100%);
+  }
+
+  /* ── INFORMACIÓN ── */
+  .info-fiesta-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .info-fiesta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--rojo);
+    line-height: 1.1;
+  }
+
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .info-block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  .info-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--rojo);
+    line-height: 1;
+  }
+
+  .info-block-body h4 {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-block-body p {
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.8;
+  }
+
+  /* ── LISTA NOVIOS ── */
+  .lista-wrap {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 4rem;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    max-width: 100%;
+  }
+
+  .lista-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border-radius: 50%;
+  }
+
+  .lista-text {
+    text-align: center;
+  }
+
+  .lista-text h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blanco);
+    margin-bottom: 1rem;
+  }
+
+  .lista-text p {
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.9;
+    max-width: 44ch;
+    margin: 0 auto;
+  }
+
+  .qr-box {
+    text-align: center;
+  }
+
+  .qr-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .qr-placeholder svg { width: 80px; height: 80px; opacity: 0.4; }
+
+  .qr-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--gris);
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER HERO ── */
+  .footer-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 4rem;
+    overflow: hidden;
+  }
+
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,
+      rgba(10,10,10,0.9) 40%,
+      rgba(10,10,10,0.3) 100%),
+      url('https://images.unsplash.com/photo-1529636562924-abfcab5e41a4?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;
+    filter: grayscale(100%);
+  }
+
+  .footer-content {
+    position: relative;
+  }
+
+  .footer-te-esperamos {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    color: var(--blanco);
+    line-height: 1;
+    margin-bottom: 2rem;
+  }
+
+  .btn-confirmacion {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--blanco);
+    color: var(--blanco);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .btn-confirmacion:hover {
+    background: var(--blanco);
+    color: var(--negro);
+  }
+
+  /* ── MODAL RSVP ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .modal h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blanco);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal .sub {
+    font-size: 0.75rem;
+    color: var(--gris);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--blanco);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: #555; }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--rojo);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .form-group select option { background: #111; }
+
+  .modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+  }
+
+  .btn-cancel {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .btn-send {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    background: var(--rojo);
+    color: var(--blanco);
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 2rem;
+    transition: opacity 0.2s;
+  }
+
+  .btn-send:hover { opacity: 0.8; }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--gris);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .modal-thanks {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .modal-thanks .thanks-icon {
+    font-size: 2.5rem;
+    color: var(--rojo);
+    margin-bottom: 1rem;
+  }
+
+  .modal-thanks h4 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blanco);
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-thanks p {
+    font-size: 0.8rem;
+    color: var(--gris);
+    line-height: 1.8;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .nos-casamos { grid-template-columns: 1fr; }
+    .nos-casamos-img { aspect-ratio: 4/3; }
+    .info-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .itinerario-wrap { grid-template-columns: 1fr; }
+    .info-fiesta-wrap { grid-template-columns: 1fr; }
+    .lista-wrap { grid-template-columns: 1fr; text-align: center; padding: 4rem 2rem; }
+    .lista-img { margin: 0 auto; }
+    .footer-hero { padding: 3rem 2rem; }
+    .modal { padding: 2rem; }
+  }
+
+  /* ── ANIMACIONES SCROLL ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
